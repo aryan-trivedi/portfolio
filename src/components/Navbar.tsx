@@ -17,7 +17,6 @@ const Navbar = () => {
   const navRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
 
-  /* ================= Intersection Observer ================= */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,10 +26,7 @@ const Navbar = () => {
           }
         });
       },
-      {
-        rootMargin: "-45% 0px -45% 0px",
-        threshold: 0,
-      }
+      { rootMargin: "-45% 0px -45% 0px" }
     );
 
     sections.forEach((id) => {
@@ -41,13 +37,11 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  /* ================= Indicator Movement (Desktop Only) ================= */
   useEffect(() => {
     if (window.innerWidth <= 768) return;
 
     const nav = navRef.current;
     const indicator = indicatorRef.current;
-
     if (!nav || !indicator) return;
 
     const activeLink = nav.querySelector(
@@ -60,9 +54,7 @@ const Navbar = () => {
     const navRect = nav.getBoundingClientRect();
 
     indicator.style.width = `${linkRect.width}px`;
-    indicator.style.transform = `translate(${
-      linkRect.left - navRect.left
-    }px, -50%)`;
+    indicator.style.transform = `translate(${linkRect.left - navRect.left}px, -50%)`;
   }, [active]);
 
   const handleClick = (
@@ -80,10 +72,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar-wrapper">
-      <div className="navbar-container">
-
-        {/* Hamburger */}
+    <>
+      {/* TOP BAR */}
+      <div className="topbar">
+        <div className="logo">Aryan Trivedi</div>
         <div
           className={`hamburger ${menuOpen ? "open" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -92,8 +84,10 @@ const Navbar = () => {
           <span />
           <span />
         </div>
+      </div>
 
-        {/* Desktop Navbar */}
+      {/* DESKTOP NAV */}
+      <div className="navbar-wrapper">
         <div className="navbar desktop" ref={navRef}>
           <div ref={indicatorRef} className="nav-indicator" />
           {sections.map((sec) => (
@@ -108,9 +102,11 @@ const Navbar = () => {
             </a>
           ))}
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        <div className={`mobile-menu ${menuOpen ? "show" : ""}`}>
+      {/* MOBILE MENU */}
+      <div className={`mobile-overlay ${menuOpen ? "show" : ""}`}>
+        <div className="mobile-menu">
           {sections.map((sec) => (
             <a
               key={sec}
@@ -123,7 +119,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
