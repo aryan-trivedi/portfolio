@@ -20,16 +20,14 @@ const certifications = [
     tag: "Data • SQL",
   },
   {
-    title:
-      "Data Analytics & Visualization Virtual Experience Program",
+    title: "Data Analytics & Visualization Virtual Experience Program",
     issuer: "Accenture",
     year: "2024",
     icon: <FaBriefcase />,
     tag: "Analytics • Consulting",
   },
   {
-    title:
-      "Fullstack Engineer Virtual Experience",
+    title: "Fullstack Engineer Virtual Experience",
     issuer: "JP Morgan & Chase",
     year: "2024",
     icon: <FaBriefcase />,
@@ -41,15 +39,10 @@ const Certifications = () => {
   return (
     <section id="certifications" style={{ padding: "6rem 1.5rem" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        {/* ===== HEADER ===== */}
+
+        {/* HEADER */}
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <h2
-            style={{
-              fontSize: "2.6rem",
-              fontWeight: 700,
-              marginBottom: "0.75rem",
-            }}
-          >
+          <h2 style={{ fontSize: "2.6rem", fontWeight: 700 }}>
             Certifications
           </h2>
 
@@ -57,7 +50,7 @@ const Certifications = () => {
             style={{
               width: "64px",
               height: "4px",
-              margin: "0 auto",
+              margin: "0.75rem auto 0",
               borderRadius: "999px",
               background:
                 "linear-gradient(90deg, #6366f1, #8b5cf6)",
@@ -65,12 +58,13 @@ const Certifications = () => {
           />
         </div>
 
-        {/* ===== 2 x 2 GRID ===== */}
+        {/* RESPONSIVE GRID */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
             gap: "2rem",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(300px, 1fr))",
           }}
         >
           {certifications.map((cert) => (
@@ -81,35 +75,17 @@ const Certifications = () => {
                   "linear-gradient(180deg, #0f172a, #020617)",
                 border: "1px solid rgba(148,163,184,0.15)",
                 borderRadius: "20px",
-                padding: "2.2rem",
-                boxShadow: "0 0 40px rgba(99,102,241,0.08)",
-                transition: "all 0.35s ease",
-                cursor: "pointer",
+                padding: "2rem",
+                boxShadow:
+                  "0 0 40px rgba(99,102,241,0.08)",
                 position: "relative",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(-8px)";
-                e.currentTarget.style.boxShadow =
-                  "0 0 80px rgba(139,92,246,0.35)";
-                e.currentTarget.style.border =
-                  "1px solid rgba(139,92,246,0.45)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 0 40px rgba(99,102,241,0.08)";
-                e.currentTarget.style.border =
-                  "1px solid rgba(148,163,184,0.15)";
-              }}
             >
-              {/* Category Tag */}
               <div
                 style={{
                   position: "absolute",
-                  top: "1.2rem",
-                  right: "1.2rem",
+                  top: "1rem",
+                  right: "1rem",
                   padding: "0.3rem 0.7rem",
                   borderRadius: "999px",
                   fontSize: "0.7rem",
@@ -123,7 +99,6 @@ const Certifications = () => {
                 {cert.tag}
               </div>
 
-              {/* Icon */}
               <div
                 style={{
                   fontSize: "2rem",
@@ -134,35 +109,21 @@ const Certifications = () => {
                 {cert.icon}
               </div>
 
-              {/* Title */}
               <h3
                 style={{
-                  fontSize: "1.2rem",
+                  fontSize: "1.1rem",
                   fontWeight: 600,
-                  marginBottom: "0.6rem",
+                  marginBottom: "0.5rem",
                 }}
               >
                 {cert.title}
               </h3>
 
-              {/* Issuer */}
-              <p
-                style={{
-                  color: "#cbd5f5",
-                  fontSize: "0.95rem",
-                  marginBottom: "0.4rem",
-                }}
-              >
+              <p style={{ color: "#cbd5f5", fontSize: "0.9rem" }}>
                 {cert.issuer}
               </p>
 
-              {/* Year */}
-              <p
-                style={{
-                  color: "#94a3b8",
-                  fontSize: "0.85rem",
-                }}
-              >
+              <p style={{ color: "#94a3b8", fontSize: "0.85rem" }}>
                 {cert.year}
               </p>
             </div>

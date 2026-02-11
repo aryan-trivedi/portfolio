@@ -51,7 +51,7 @@ function App() {
           backdropFilter: "blur(10px)",
         }}
       >
-        © 2025 Aryan Trivedi | All rights reserved
+        © 2026 Aryan Trivedi | All rights reserved
       </footer>
     </>
   );
