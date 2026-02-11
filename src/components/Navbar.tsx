@@ -13,6 +13,7 @@ const sections = [
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
 
@@ -22,14 +23,11 @@ const Navbar = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActive((prev) =>
-              prev !== entry.target.id ? entry.target.id : prev
-            );
+            setActive(entry.target.id);
           }
         });
       },
       {
-        root: null,
         rootMargin: "-45% 0px -45% 0px",
         threshold: 0,
       }
@@ -43,8 +41,10 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  /* ================= Indicator Movement ================= */
+  /* ================= Indicator Movement (Desktop Only) ================= */
   useEffect(() => {
+    if (window.innerWidth <= 768) return;
+
     const nav = navRef.current;
     const indicator = indicatorRef.current;
 
@@ -65,41 +65,13 @@ const Navbar = () => {
     }px, -50%)`;
   }, [active]);
 
-  /* ================= Resize Recalculation ================= */
-  useEffect(() => {
-    const handleResize = () => {
-      const nav = navRef.current;
-      const indicator = indicatorRef.current;
-      if (!nav || !indicator) return;
-
-      const activeLink = nav.querySelector(
-        `a[data-id="${active}"]`
-      ) as HTMLAnchorElement | null;
-
-      if (!activeLink) return;
-
-      const linkRect = activeLink.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-
-      indicator.style.width = `${linkRect.width}px`;
-      indicator.style.transform = `translate(${
-        linkRect.left - navRect.left
-      }px, -50%)`;
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [active]);
-
-  /* ================= Smooth Scroll ================= */
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string
   ) => {
     e.preventDefault();
-
-    // Immediate activation (fixes pill delay)
     setActive(id);
+    setMenuOpen(false);
 
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
@@ -109,20 +81,47 @@ const Navbar = () => {
 
   return (
     <div className="navbar-wrapper">
-      <div className="navbar" ref={navRef}>
-        <div ref={indicatorRef} className="nav-indicator" />
+      <div className="navbar-container">
 
-        {sections.map((sec) => (
-          <a
-            key={sec}
-            href={`#${sec}`}
-            data-id={sec}
-            onClick={(e) => handleClick(e, sec)}
-            className={active === sec ? "active" : ""}
-          >
-            {sec.charAt(0).toUpperCase() + sec.slice(1)}
-          </a>
-        ))}
+        {/* Hamburger */}
+        <div
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span />
+          <span />
+          <span />
+        </div>
+
+        {/* Desktop Navbar */}
+        <div className="navbar desktop" ref={navRef}>
+          <div ref={indicatorRef} className="nav-indicator" />
+          {sections.map((sec) => (
+            <a
+              key={sec}
+              href={`#${sec}`}
+              data-id={sec}
+              onClick={(e) => handleClick(e, sec)}
+              className={active === sec ? "active" : ""}
+            >
+              {sec.charAt(0).toUpperCase() + sec.slice(1)}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${menuOpen ? "show" : ""}`}>
+          {sections.map((sec) => (
+            <a
+              key={sec}
+              href={`#${sec}`}
+              onClick={(e) => handleClick(e, sec)}
+              className={active === sec ? "active" : ""}
+            >
+              {sec.charAt(0).toUpperCase() + sec.slice(1)}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
