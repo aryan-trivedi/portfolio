@@ -13,7 +13,7 @@ const skillsData = [
     icon: <FaCode />,
     description:
       "Strong foundation in core programming languages with problem-solving, OOP, and performance-oriented thinking.",
-    skills: ["Java", "Python", "C/C++", "JavaScript", "TypeScript"],
+    skills: ["Java", "Python","JavaScript", "TypeScript"],
   },
   {
     title: "Full-Stack & Backend Engineering",
@@ -43,6 +43,7 @@ const skillsData = [
       "Plotly",
       "Power BI",
       "Streamlit",
+      "Deep Learning"
     ],
   },
   {
@@ -50,7 +51,7 @@ const skillsData = [
     icon: <FaBrain />,
     description:
       "Designing intelligent systems using LLMs and RAG.",
-    skills: ["LangChain", "LangGraph", "LLM APIs", "Vector Databases", "RAG"],
+    skills: ["LangChain", "LangGraph", "LLM APIs", "Vector Databases", "RAG","N8N","LlamaIndex","DSpy","Embedding","Chunking"],
   },
   {
     title: "Databases & Cloud Infrastructure",
