@@ -88,23 +88,16 @@ const Skills = () => {
   return (
     <section id="skills" style={{ padding: "6rem 1.5rem" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* ===== HEADER ===== */}
+        {/* HEADER */}
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <h2
-            style={{
-              fontSize: "2.6rem",
-              fontWeight: 700,
-              marginBottom: "0.75rem",
-            }}
-          >
+          <h2 style={{ fontSize: "2.6rem", fontWeight: 700 }}>
             Skills
           </h2>
-
           <div
             style={{
               width: "64px",
               height: "4px",
-              margin: "0 auto",
+              margin: "0.75rem auto 0",
               borderRadius: "999px",
               background:
                 "linear-gradient(90deg, #6366f1, #8b5cf6)",
@@ -112,12 +105,13 @@ const Skills = () => {
           />
         </div>
 
-        {/* ===== FORCE 3x2 GRID ===== */}
+        {/* RESPONSIVE GRID */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)", // 👈 exact 3 columns
             gap: "2rem",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(300px, 1fr))",
           }}
         >
           {skillsData.map((block) => (
@@ -129,28 +123,11 @@ const Skills = () => {
                 border: "1px solid rgba(148,163,184,0.15)",
                 borderRadius: "18px",
                 padding: "2rem",
-                boxShadow: "0 0 40px rgba(99,102,241,0.08)",
+                boxShadow:
+                  "0 0 40px rgba(99,102,241,0.08)",
                 transition: "all 0.35s ease",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(-8px)";
-                e.currentTarget.style.boxShadow =
-                  "0 0 70px rgba(99,102,241,0.35)";
-                e.currentTarget.style.border =
-                  "1px solid rgba(99,102,241,0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform =
-                  "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 0 40px rgba(99,102,241,0.08)";
-                e.currentTarget.style.border =
-                  "1px solid rgba(148,163,184,0.15)";
               }}
             >
-              {/* Icon */}
               <div
                 style={{
                   fontSize: "2rem",
@@ -161,7 +138,6 @@ const Skills = () => {
                 {block.icon}
               </div>
 
-              {/* Title */}
               <h3
                 style={{
                   fontSize: "1.25rem",
@@ -172,7 +148,6 @@ const Skills = () => {
                 {block.title}
               </h3>
 
-              {/* Description */}
               <p
                 style={{
                   color: "#94a3b8",
@@ -184,7 +159,6 @@ const Skills = () => {
                 {block.description}
               </p>
 
-              {/* Chips */}
               <div
                 style={{
                   display: "flex",
