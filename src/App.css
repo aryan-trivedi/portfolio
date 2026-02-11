@@ -1,0 +1,14 @@
+/* Remove Vite default layout constraints */
+
+#root {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Optional utility container if needed later */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
