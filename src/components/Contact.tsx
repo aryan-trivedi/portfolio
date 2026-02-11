@@ -14,7 +14,6 @@ import { useEffect, useRef, useState } from "react";
 const Contact = () => {
   const glowRef = useRef<HTMLDivElement>(null);
 
-  /* Cursor Glow */
   useEffect(() => {
     const moveGlow = (e: MouseEvent) => {
       if (!glowRef.current) return;
@@ -32,20 +31,17 @@ const Contact = () => {
       <div className="noise" />
 
       <div className="contact-container">
-        {/* HEADER */}
-        <div className="contact-header fade-up">
+        <div className="contact-header">
           <h2>Let’s Connect</h2>
           <div className="underline" />
         </div>
 
-        {/* CARD */}
-        <div className="contact-card fade-up">
+        <div className="contact-card">
           <p className="contact-description">
             Open to Gen AI, full-stack engineering,
             data-driven innovation, and meaningful collaborations.
           </p>
 
-          {/* CONTACT ROW */}
           <div className="contact-row">
             <ContactItem
               icon={<FaEnvelope />}
@@ -63,7 +59,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* RESUME BUTTON */}
           <a
             href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
             target="_blank"
@@ -74,7 +69,6 @@ const Contact = () => {
             Download Resume
           </a>
 
-          {/* SOCIAL */}
           <div className="social-row">
             <SocialIcon href="https://github.com/aryan-trivedi" icon={<FaGithub />} />
             <SocialIcon href="https://www.linkedin.com/in/aryan-trivedi-38a7b922b/" icon={<FaLinkedin />} />
@@ -86,10 +80,6 @@ const Contact = () => {
     </section>
   );
 };
-
-/* ============================= */
-/* CONTACT ITEM COMPONENT */
-/* ============================= */
 
 const ContactItem = ({
   icon,
@@ -106,12 +96,9 @@ const ContactItem = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = async (
-    e: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     await navigator.clipboard.writeText(value);
-
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -130,20 +117,12 @@ const ContactItem = ({
             onClick={handleCopy}
           >
             {copied ? <FaCheck /> : <FaCopy />}
-            <span className="tooltip">
-              {copied ? "Copied!" : "Copy"}
-            </span>
-            <span className="ripple" />
           </button>
         )}
       </div>
     </a>
   );
 };
-
-/* ============================= */
-/* SOCIAL ICON */
-/* ============================= */
 
 const SocialIcon = ({
   href,
