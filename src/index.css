@@ -1,4 +1,10 @@
-* {
+/* =========================
+   GLOBAL RESET
+========================= */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -8,20 +14,87 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   background: #0b0f14;
   color: #ffffff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
+  overflow-x: hidden; /* prevents horizontal scroll issues */
 }
 
-/* ===== SECTION STRUCTURE (VERY IMPORTANT) ===== */
+/* =========================
+   IMAGES
+========================= */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   SECTION STRUCTURE
+========================= */
 
 section {
   min-height: 100vh;
   padding: 6rem 4rem;
   display: flex;
   align-items: center;
-  scroll-margin-top: 120px;
+  justify-content: center;
+  scroll-margin-top: 100px;
 }
 
+/* =========================
+   CONTAINER (Optional use)
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   RESPONSIVE FIXES
+========================= */
+
+@media (max-width: 1024px) {
+  section {
+    padding: 5rem 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    min-height: auto;              /* remove forced 100vh */
+    padding: 4rem 1.5rem;          /* reduce side padding */
+    flex-direction: column;        /* stack content vertically */
+    align-items: flex-start;       /* better reading alignment */
+    justify-content: flex-start;
+  }
+
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 1rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
