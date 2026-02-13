@@ -60,7 +60,7 @@ const Contact = () => {
           </div>
 
           <a
-            href="https://drive.google.com/file/d/16ObkqOX9PafNgl_gw0pizaDnFpYDy5rZ/view"
+            href="https://drive.google.com/file/d/1x6snDNkR1-RZnZ93YEmDTpfXTm8F9LDU/view"
             target="_blank"
             rel="noopener noreferrer"
             className="resume-button"
