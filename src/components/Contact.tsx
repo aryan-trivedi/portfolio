@@ -60,13 +60,13 @@ const Contact = () => {
           </div>
 
           <a
-            href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
+            href="https://drive.google.com/file/d/16ObkqOX9PafNgl_gw0pizaDnFpYDy5rZ/view"
             target="_blank"
             rel="noopener noreferrer"
             className="resume-button"
           >
             <FaDownload />
-            Download Resume
+            Download/View Resume
           </a>
 
           <div className="social-row">
