@@ -53,20 +53,22 @@ const Projects = () => {
             gap: "2rem",
           }}
         >
-          {/* 1️⃣ PharmaFlow */}
+          {/* 1️⃣ HireSense AI */}
           <ProjectCard
-            title="PharmaFlow"
-            category="Full-Stack · Healthcare"
-            description="A centralized platform to streamline drug procurement and distribution across medical institutions with real-time monitoring, vendor tracking, quality control, and analytics-driven dashboards."
+            title="HireSense AI"
+            category="AI · Resume Intelligence"
+            description="An AI-powered resume intelligence platform that analyzes resumes using LLMs, performs ATS-style scoring, detects skill gaps, and recommends jobs using semantic vector search."
             tech={[
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "JWT",
-              "Mongoose",
-              "REST APIs",
+              "Next.js",
+              "TypeScript",
+              "FastAPI",
+              "Supabase",
+              "FastEmbed",
+              "FAISS",
+              "Llama 3",
             ]}
-            github="https://github.com/aryan-trivedi/PharmaFlow"
+            github="https://github.com/aryan-trivedi/HireSense-AI"
+            live="https://hire-sense-ai-pied.vercel.app/"
           />
 
           {/* 2️⃣ MinuteMind */}
@@ -101,19 +103,20 @@ const Projects = () => {
             github="https://github.com/aryan-trivedi/GemmaRAG-Engine"
           />
 
-          {/* 4️⃣ AI Product Recommender */}
+          {/* 4️⃣ PharmaFlow */}
           <ProjectCard
-            title="AI Product Recommender"
-            category="Machine Learning"
-            description="A scalable e-commerce recommendation engine using collaborative, content-based, and hybrid filtering techniques to deliver personalized product suggestions."
+            title="PharmaFlow"
+            category="Full-Stack · Healthcare"
+            description="A centralized platform to streamline drug procurement and distribution across medical institutions with real-time monitoring, vendor tracking, quality control, and analytics-driven dashboards."
             tech={[
-              "Python",
-              "Pandas",
-              "Scikit-learn",
-              "Collaborative Filtering",
-              "Hybrid Models",
+              "Node.js",
+              "Express",
+              "MongoDB",
+              "JWT",
+              "Mongoose",
+              "REST APIs",
             ]}
-            github="https://github.com/aryan-trivedi/AI-Product-Recommender"
+            github="https://github.com/aryan-trivedi/PharmaFlow"
           />
 
           {/* 5️⃣ My-DevConnect */}

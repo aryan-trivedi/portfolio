@@ -1,4 +1,4 @@
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 type ProjectCardProps = {
   title: string;
@@ -6,6 +6,7 @@ type ProjectCardProps = {
   tech: string[];
   category: string;
   github?: string;
+  live?: string;
   period?: string;
 };
 
@@ -15,6 +16,7 @@ const ProjectCard = ({
   tech,
   category,
   github,
+  live,
   period,
 }: ProjectCardProps) => {
   return (
@@ -116,26 +118,54 @@ const ProjectCard = ({
         ))}
       </div>
 
-      {/* GITHUB LINK */}
-      {github && (
-        <a
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            color: "#e5e7eb",
-            textDecoration: "none",
-            fontSize: "0.9rem",
-            fontWeight: 500,
-          }}
-        >
-          <FaGithub size={18} />
-          View on GitHub
-        </a>
-      )}
+      {/* LINKS */}
+      <div
+        style={{
+          display: "flex",
+          gap: "1rem",
+          alignItems: "center",
+        }}
+      >
+        {live && (
+          <a
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "#a5b4fc",
+              textDecoration: "none",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+            }}
+          >
+            <FaExternalLinkAlt size={16} />
+            Live Demo
+          </a>
+        )}
+
+        {github && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "#e5e7eb",
+              textDecoration: "none",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+            }}
+          >
+            <FaGithub size={18} />
+            View on GitHub
+          </a>
+        )}
+      </div>
     </div>
   );
 };
